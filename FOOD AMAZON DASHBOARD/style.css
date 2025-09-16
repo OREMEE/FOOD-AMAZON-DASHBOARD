@@ -1,0 +1,61 @@
+body {
+  overflow-x: hidden;
+  background-color: #f9f9f9;
+}
+
+.sidebar {
+  min-height: 100vh;
+  background-color: #ffffff;
+  border-right: 1px solid #e0e0e0;
+}
+
+.nav {
+  border-bottom: 1px solid #eee;
+}
+
+.sidebar .nav-link {
+  color: #333;
+  font-size: 0.95rem;
+}
+.sidebar .nav-link:hover {
+  background-color: #e6f4ea;
+  color: #1a7f37;
+  font-weight: 600;
+}
+
+.brand {
+  font-weight: 600;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.logout {
+  margin-top: 150px;
+  margin-left: 20px;
+  padding-top: 1rem;
+  outline: none;
+}
+
+.toggle-btn {
+  border: none;
+  background: none;
+  font-size: 1.25rem;
+  padding: 1rem;
+}
+
+.card p {
+  font-size: 12px;
+}
+#myDonutChart{
+  background-color: #ffffff;
+  border-radius: 20px;
+}
+
+@media (min-width: 768px) {
+  .toggle-btn {
+    display: none;
+  }
+}
+
+@media (min-width: 400px) {
+}
