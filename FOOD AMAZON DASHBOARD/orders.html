@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders Table</title>
+   <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />  
+    <link rel="stylesheet" href="./style.css">
+ 
+</head>
+<body>
+<section class="d-flex">
+     <!-- Sidebar -->
+      <div class="sidebar collapse show flex-column w-25 px-2" id="sidebarMenu">
+        <div class="brand d-flex">
+          <img src="./assest/Foodies logo without Banner 1 (2).png" alt="" />
+          <p class="mx-2 mt-3">360 Organic Foodie</p>
+        </div>
+
+        <ul class="nav nav-pills flex-column mt-3 mb-auto px-3">
+          <a class="nav-link" href="#"
+            ><i class="bi bi-house-door me-2"></i>Dashboard</a
+          >
+          <a class="nav-link" href="#"><i class="bi bi-cart me-2"></i>Orders</a>
+          <a class="nav-link" href="#"
+            ><i class="bi bi-people me-2"></i>Customers</a
+          >
+          <a class="nav-link" href="#"
+            ><i class="bi bi-bar-chart-line me-2"></i>Inventory</a
+          >
+          <a class="nav-link" href="#"
+            ><i class="fas fa-bell me-2"></i>Notifications</a
+          >
+          <a class="nav-link" href="#"
+            ><i class="fas fa-comment-medical me-2"></i>Reviews</a
+          >
+          <a class="nav-link" href="#"
+            ><i class="bi bi-gear me-2"></i>Settings</a
+          >
+        </ul>
+
+        <!-- Logout -->
+        <div class="logout">
+          <button class="btn btn-d">
+            <i class="bi bi-power me-2"></i>Logout
+          </button>
+        </div>
+        <!-- Logout -->
+      </div>
+      <!-- Sidebar -->
+<section class="main-dish">
+<!-- Sidebar Toggle Button -->
+<button
+class="toggle-btn d-md-none position-fixed top-0 d-md-none z-3"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#sidebarMenu"
+aria-controls="sidebarMenu"
+aria-expanded="false"
+>
+☰
+</button>
+<!-- Sidebar Toggle Button -->
+
+<!-- navbar -->
+<nav
+class="d-flex align-items-center justify-content-between px-4 py-2"
+style="
+  background: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  width: 170%;
+"
+>
+<div
+  class="flex-grow-1 me-4"
+  style="max-width: 400px; position: relative"
+>
+  <input
+    type="search"
+    class="form-control rounded-3 border-0 ps-5"
+    placeholder="Search here..."
+    aria-label="Search"
+    style="height: 38px"
+  />
+  <i
+    class="bi bi-search text-secondary"
+    style="
+      position: absolute;
+      top: 50%;
+      left: 16px;
+      transform: translateY(-50%);
+      pointer-events: none;
+    "
+  ></i>
+</div>
+
+<!-- Icons and profile -->
+<div
+  class="d-flex align-items-center gap-2 me-3 position-absolute end-0"
+>
+  <!-- Cart icon in circular bg -->
+  <button class="btn btn-light rounded-circle">
+    <i class="bi bi-cart3 fs-5 text-secondary"></i>
+  </button>
+
+  <!-- Bell icon with green dot -->
+  <button
+    class="btn btn-light rounded-circle position-relative p-2 d-flex align-items-center justify-content-center"
+    style="width: 38px; height: 38px"
+  >
+    <i class="bi bi-bell fs-5 text-secondary"></i>
+    <span
+      class="position-absolute top-0 start-100 p-1 bg-success rounded-circle"
+    ></span>
+  </button>
+
+  <!-- Profile dropdown -->
+  <div class="dropdown">
+    <button
+      class="btn d-flex align-items-center gap-2 p-0 bg-transparent border-0"
+      id="dropdownProfile"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      <div>
+        <img
+          src="./assest/owen.png"
+          alt="Profile"
+          class="rounded-circle"
+          style="width: 40px; height: 40px; object-fit: cover"
+        />
+      </div>
+      <span class="fw-medium text-secondary">Michael Owen</span>
+      <i class="bi bi-chevron-down text-secondary"></i>
+    </button>
+    <ul
+      class="dropdown-menu dropdown-menu-end mt-2 shadow-sm"
+      aria-labelledby="dropdownProfile"
+    >
+      <li><a class="dropdown-item" href="#">Profile</a></li>
+      <li><a class="dropdown-item" href="#">Settings</a></li>
+      <li><hr class="dropdown-divider" /></li>
+      <li>
+        <a class="dropdown-item text-danger" href="#">Logout</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav>
+<!-- navbar ends  -->
+       <!-- order table  -->
+<div class="container-fluid bg-white rounded m-lg-5">
+    <h5 class="mb-3 pt-lg-3 pt-1">Orders</h5>
+
+    <!-- Tab Buttons (Bootstrap handles switching) -->
+    <div class="btn-group tab-buttons mb-3" role="tablist">
+      <button class="btn active border-0" data-bs-toggle="tab" data-bs-target="#all" type="button">All Orders</button>
+      <button class="btn border-0" data-bs-toggle="tab" data-bs-target="#pending" type="button">Pending Orders</button>
+      <button class="btn border-0" data-bs-toggle="tab" data-bs-target="#delivered" type="button">Delivered Orders</button>
+      <button class="btn border-0" data-bs-toggle="tab" data-bs-target="#canceled" type="button">Cancelled Orders</button>
+    </div>
+
+    <!-- Tab Content --> 
+    <div class="tab-content">
+      <!-- All Orders -->
+      <div class="tab-pane fade show active" id="all">
+        <div class="table-responsive" style="font-size: 15px;">
+          <table class="table">
+            <thead class="table-light">
+              <tr>
+                <th><i class="bi bi-list me-2" style="color: #74C0FC;"></i>Order ID</th>
+                <th><i class="bi bi-calendar-event me-2" style="color: #F58634"></i>Ordered Date</th>
+                <th><i class="bi bi-box-seam me-2" style="color: #F58634"></i>Product Name</th>
+                <th><i class="bi bi-geo-alt"></i>Location</th>
+                <th><i class="fa-solid fa-signal me-2" style="color: #74C0FC;"></i>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#123456</td>
+                <td>18-12-2022</td>
+                <td>Berry Bliss Bites</td>
+                <td>Ikeja</td>
+                <td><span class="status-badge status-delivered">Delivered</span></td>
+              </tr>
+              <tr>
+                <td>#987563</td>
+                <td>21-01-2021</td>
+                <td>Organic Almond Delight</td>
+                <td>Somolu</td>
+                <td><span class="status-badge status-canceled">Canceled</span></td>
+              </tr>
+              <tr>
+                <td>#243789</td>
+                <td>12-10-2020</td>
+                <td>Organic Almond Delight</td>
+                <td>ibeju-lekki</td>
+                <td><span class="status-badge status-pending">Pending</span></td>
+              </tr>
+              <tr>
+                <td>#245128</td>
+                <td>14-12-2022</td>
+                <td>Berry Bliss Bites</td>
+                <td>Epe</td>
+                <td><span class="status-badge status-delivered">Delivered</span></td>
+              </tr>
+
+              <tr>
+                <td>#123456</td>
+                <td>18-12-2022</td>
+                <td>Berry Bliss Bites</td>
+                <td>Ikeja</td>
+                <td><span class="status-badge status-delivered">Delivered</span></td>
+              </tr>
+              <tr>
+                <td>#987563</td>
+                <td>21-01-2021</td>
+                <td>Organic Almond Delight</td>
+                <td>Somolu</td>
+                <td><span class="status-badge status-canceled">Canceled</span></td>
+              </tr>
+              <tr>
+                <td>#124378</td>
+                <td>18-11-2022</td>
+                <td>Berry Bliss Bites</td>
+                <td>Oshodi</td>
+                <td><span class="status-badge status-delivered">Delivered</span></td>
+              </tr>
+              <tr>
+                <td>#243789</td>
+                <td>12-10-2020</td>
+                <td>Organic Almond Delight</td>
+                <td>ibeju-lekki</td>
+                <td><span class="status-badge status-pending">Pending</span></td>
+              </tr>
+              <tr>
+                <td>#245128</td>
+                <td>14-12-2022</td>
+                <td>Berry Bliss Bites</td>
+                <td>Epe</td>
+                <td><span class="status-badge status-delivered">Delivered</span></td>
+              </tr>
+              <tr>
+                <td>#741789</td>
+                <td>15-06-2022</td>
+                <td>Organic Almond Delight</td>
+                <td>Sango</td>
+                <td><span class="status-badge status-canceled">Canceled</span></td>
+              </tr>
+              <tr>
+                <td>#487589</td>
+                <td>12-10-2020</td>
+                <td>Organic Almond Delight</td>
+                <td>Ibadan</td>
+                <td><span class="status-badge status-pending">Pending</span></td>
+              </tr>
+              <tr>
+                <td>#243759</td>
+                <td>12-12-2022</td>
+                <td>Organic Almond Delight</td>
+                <td>Ikorodu</td>
+                <td><span class="status-badge status-delivered">Delivered</span></td>
+              </tr>
+              <tr>
+                <td>#487589</td>
+                <td>19-10-2020</td>
+                <td>Organic Almond Delight</td>
+                <td>Maryland</td>
+                <td><span class="status-badge status-pending">Pending</span></td>
+              </tr>
+              <tr>
+                <td>#123456</td>
+                <td>21-12-2022</td>
+                <td>Organic Almond Delight</td>
+                <td>Ajeromi</td>
+                <td><span class="status-badge status-canceled">Canceled</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Pagination -->
+        <div class="d-flex justify-content-between align-items-center">
+          <small>Showing 1 to 4 items</small>
+          <nav>
+            <ul class="pagination pagination-sm mb-0">
+              <li class="page-item disabled"><a class="page-link" href="#">‹</a></li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+               <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">›</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Pending Orders -->
+      <div class="tab-pane fade" id="pending">
+        <div class="table-responsive"></div>
+        <p>Pending orders table goes here…</p>
+      </div>
+
+      <!-- Delivered Orders -->
+      <div class="tab-pane fade" id="delivered">
+        <p>Delivered orders table goes here…</p>
+      </div>
+
+      <!-- Cancelled Orders -->
+      <div class="tab-pane fade" id="canceled">
+        <p>Cancelled orders table goes here…</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</section>
+ 
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
